@@ -1,0 +1,3 @@
+C:/Users/Kass/Desktop/Estudis/UNI/MTP2/Exercici_2_casa/cmake-build-debug/CMakeFiles/Exercici_2_casa.dir
+C:/Users/Kass/Desktop/Estudis/UNI/MTP2/Exercici_2_casa/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kass/Desktop/Estudis/UNI/MTP2/Exercici_2_casa/cmake-build-debug/CMakeFiles/rebuild_cache.dir
