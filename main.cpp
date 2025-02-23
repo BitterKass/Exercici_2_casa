@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Data.cpp"
+#include "Data.h"
 
 void introduir_dates(Data &data_n, Data &data_act)
 {
@@ -10,7 +10,7 @@ void introduir_dates(Data &data_n, Data &data_act)
 
     data_n = Data(dia_n, mes_n, any_n);
 
-    std::cout << "Examen per obtenir el titol de viatger del temps\nIntrodueix la teva data de naixement (dd mm aaaa): " << endl;
+    std::cout << "Introdueix la data d'avui (dd mm aaaa): " << endl;
     std::cin >> dia_a >> mes_a >> any_a;
 
     data_act = Data(dia_a, mes_a, any_a);
@@ -28,16 +28,24 @@ int primer_dia_cs(Data data_v)
 int comptar_dimarts_13(Data data_v)
 {
     int num_dimarts_trovats = 0;
-    for (int i = 1; i < 12; i++)
+    int mes_original = data_v.get_mes();
+
+    for (int i = 1; i <= 12; i++)
     {
         data_v.set_dia(13);
         data_v.set_mes(i);
-        if (data_v.get_dia_setmana() == "dimarts"){
+
+        if (data_v.get_dia_setmana() == "dimarts")
+        {
             num_dimarts_trovats++;
         }
     }
+
+    data_v.set_mes(mes_original);
     return num_dimarts_trovats;
 }
+
+
 
 void comprovar_calendari(Data data_v)
 {
@@ -78,7 +86,7 @@ void preguntes_examen()
     } else std::cout << "Incorrecte!" << endl;
 
     std::cout << "Quants dimarts 13 hi ha aquest any?" << endl;
-    std::cin >> primer_dia_cs_r;
+    std::cin >> dimarts_13_r;
 
     if (dimarts_13_r == comptar_dimarts_13(data_v))
     {
@@ -101,7 +109,7 @@ void preguntes_examen()
         puntuacio += 2.5;
     } else std::cout << "Incorrecte!" << endl;
 
-    std::cout << "Examen finalitzat amb " << puntuacio << "7 punts" << endl;
+    std::cout << "Examen finalitzat amb " << puntuacio << " punts" << endl;
     if (puntuacio >= 5)
     {
         std::cout << "Enhorabona! Has obtingut el titol de viatger del temps" << endl;
@@ -116,11 +124,11 @@ void iniciar_examen(Data &data_n, Data &data_act)
     if (edat >= 18)
     {
         std::cout << "Comencem l'examen" << endl;
+        preguntes_examen();
     } else
     {
         std::cout << "No pots conduir una maquina del temps!" << endl;
     }
-    preguntes_examen();
 }
 
 int main()
